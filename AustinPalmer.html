@@ -1,0 +1,73 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <h1> 100% True Quotes </h1>
+    <h2> Don't question it. </h2>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+/* <![CDATA[ */
+body {
+ background: rgb(61, 60, 60);
+ color: rgb(204, 204, 204);
+ margin: 0 0 0 24pt;
+ font-family: Optima, sans-serif;
+ font-size: 13pt;
+}
+a {
+ color: #117;
+ text-decoration: none;
+}
+/* ]]> */
+</style>
+<script type="text/javascript">
+var t = 0;
+var absurd_situation = ["so my foot's totally stuck in there right, i'm freaking out", 
+"Just let the US government do its job; it'll work itself out.",
+"And then I said, 'that is not a vacuum, that's my wife!'",
+"You have known your parents all your life, but they have only known you for a portion of theirs",
+"Don't believe everything you read on the internet",
+"Hang on, I'm being kidnapped", "I'm just big boned", "I hope he wasn't just clowning around, because we buried him", "Sad!"];
+var person = ["Elvis Presley", "George Washington", "Abraham Lincoln", "Donald Trump", "Muhammad Ali", "Barack Obama", "Will Smith", "Morgan Freeman", "King George III"];
+function rand_range(max) {
+    "use strict";
+    return Math.floor(Math.random() * (max + 1));
+}
+function fresh(array) {
+    "use strict";
+    var index = rand_range(array.length - 2) + 1, selection = array[index];
+    array[index] = array[0];
+    array[0] = selection;
+    return selection;
+}
+function story() {
+    "use strict";
+    var last, lede, main = document.getElementById('main');
+    if (t <= 12) {
+        t += 1;
+    } else {
+        main.removeChild(document.getElementById('main').firstChild);
+    }
+    last = document.createElement('div');
+    last.appendChild(document.createElement('br'));
+    lede =" '" + fresh(absurd_situation) + "' " + "  -  " + fresh(person);
+    last.appendChild(document.createTextNode(lede));
+    main.appendChild(last);
+}
+function produce_stories() {
+    "use strict";
+    story();
+    setInterval(story, 3500);
+}</script>
+  <title>Lede</title>
+</head>
+<body onload="produce_stories();">
+<div style="float:right; background:#999; margin-left:6px; border-left:thin #000 solid; border-bottom:thin #000 solid; padding:6px">
+<div> Based on True News</div>
+</div>
+<div id="main"></div>
+</body>
+</html>
+
+
